@@ -18,20 +18,14 @@ public class Passageiro {
 	}
 
 	public Bagagem cadastrarBagagem(String tipoBagagem) {
-		Bagagem bagagem;
-		switch (tipoBagagem) {
-		case "mala":
-			bagagem = new Mala();
-			break;
-		case "bolsa":
-			bagagem = new Bolsa();
-			break;
-		default:
-			bagagem = new Mochila();
-		}
-		return bagagem;
-	}
-	
-	
 
+		if (tipoBagagem.equals("mala")) {
+			Bagagem bagagem1 = new Mala();
+		} else if (tipoBagagem.equals("bolsa")) {
+			Bagagem bagagem1 = new Bolsa();
+		} else {
+			Bagagem bagagem1 = new Mochila();
+		}
+		return bagagem1;
+	}
 }

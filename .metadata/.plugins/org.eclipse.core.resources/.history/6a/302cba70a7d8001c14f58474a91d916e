@@ -6,22 +6,19 @@ public class Mala extends Bagagem {
 	private double largura;
 
 	private double profundidade;
-
+	
 	@Override
 	public boolean seraDespachada() {
-		if (super.seraDespachada()) {
-			return true;
-		} else {
+		final double PESO_MAXIMO = 10;
+		if (this.peso > PESO_MAXIMO) {
 			if (altura > 55 || largura > 33 || profundidade > 25) {
 				return true;
 			} else {
 				return false;
 			}
+		} else {
+			return false;
 		}
-	}
-	
-	public void cadastrarBagagem() {
-		Bagagem mala = new Mala();
 	}
 
 }

@@ -1,0 +1,11 @@
+
+public class Passageiro {
+	
+	private String cpf;
+	
+	private String nome;
+	
+	private String passaporte;
+	
+	
+}
