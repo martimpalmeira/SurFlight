@@ -1,0 +1,37 @@
+
+public class Passageiro {
+
+	private String cpf;
+
+	private String nome;
+
+	private String passaporte;
+
+	private Bagagem bagagem;
+
+	public void cadastrarPassageiro(String cpf, String nome, String passaporte, String tipoBagagem) {
+		Passageiro passageiro = new Passageiro();
+		passageiro.cpf = cpf;
+		passageiro.nome = nome;
+		passageiro.passaporte = passaporte;
+		passageiro.bagagem = cadastrarBagagem(tipoBagagem);
+	}
+
+	public Bagagem cadastrarBagagem(String tipoBagagem) {
+		Bagagem bagagem;
+		switch (tipoBagagem) {
+		case "mala":
+			bagagem = new Mala();
+			break;
+		case "bolsa":
+			bagagem = new Bolsa();
+			break;
+		default:
+			bagagem = new Mochila();
+		}
+		return bagagem;
+	}
+	
+	
+
+}

@@ -7,8 +7,6 @@ public abstract class Bagagem {
 
 	protected String marca;
 	
-	protected Passageiro passageiro;
-	
 	public boolean seraDespachada() {
 		final double PESO_MAXIMO = 10;
 		if(this.peso>PESO_MAXIMO) {

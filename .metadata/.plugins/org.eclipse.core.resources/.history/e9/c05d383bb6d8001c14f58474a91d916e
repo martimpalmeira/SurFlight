@@ -8,7 +8,7 @@ public class Passageiro {
 
 	private String passaporte;
 
-	private ArrayList<Bagagem> bagagens;
+	private ArrayList<Bagagem> bagagem;
 	
 	
 
@@ -36,19 +36,13 @@ public class Passageiro {
 		this.passaporte = passaporte;
 	}
 
-	public ArrayList<Bagagem> getBagagem() {
-		return bagagens;
+	public Bagagem getBagagem() {
+		return bagagem;
 	}
 
-	public void setBagagem(ArrayList<Bagagem> bagagem) {
-		this.bagagens = bagagem;
+	public void setBagagem(Bagagem bagagem) {
+		this.bagagem = bagagem;
 	}
-
-	public void addBagagem(Bagagem bagagem) {
-		this.bagagens.add(bagagem);
-	}
-	
-	
 
 	
 	
