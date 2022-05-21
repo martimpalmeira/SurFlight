@@ -1,0 +1,23 @@
+
+public class Mala extends Bagagem {
+
+	private double altura;
+
+	private double largura;
+
+	private double profundidade;
+
+	public boolean seraDespachada() {
+		final double PESO_MAXIMO = 10;
+		if (super.seraDespachada()) {
+			if (altura <= 55 && largura <= 33 && profundidade <= 25) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+}

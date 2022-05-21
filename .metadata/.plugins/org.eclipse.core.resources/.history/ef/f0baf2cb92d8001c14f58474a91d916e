@@ -1,0 +1,19 @@
+
+public class Mala extends Bagagem {
+	
+	private double altura;
+	
+	private double largura;
+	
+	private double profundidade;
+	
+	public boolean seraDespachada() {
+		final double PESO_MAXIMO = 10;
+		if(this.peso>PESO_MAXIMO) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+}
