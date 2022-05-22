@@ -1,8 +1,9 @@
 
 public class Bolsa extends Bagagem {
-	
-	public void cadastrarBagagem() {
-		
+
+	public Bolsa(double peso, String cor, String marca, Passageiro passageiro) {
+		super(peso, cor, marca, passageiro);
 	}
+
 	
 }

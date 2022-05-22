@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// instanciar viagem
+		Viagem viagem = new Viagem("30/05/2022", "Salvador-BA", "São Paulo-SP", 1, 2, 3, 4);
+		// instanciar passageiro
+		while (viagem.getPassageiros().size() < viagem.getNumMaximoPassageiros()) {
+			Passageiro passageiro = viagem.cadastrarPassageiro("07277968522", "Martim", "12345678");
+			System.out.println("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
+			int numBagDoPassageiro = sc.nextInt();
+			int bagagensCadastradas = 0;
+			while (viagem.podeCadastrarBagagemDoPassageiro(passageiro) && bagagensCadastradas < numBagDoPassageiro) {
+				bagagensCadastradas++;
+				System.out.println("Cadastrando bagagem número " + bagagensCadastradas);
+				viagem.cadastrarBagagem(sc.next(), passageiro);
+
+			}
+		}
+
+		sc.close();
+	}
+
+}

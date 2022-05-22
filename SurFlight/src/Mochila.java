@@ -1,7 +1,8 @@
 
 public class Mochila extends Bagagem {
-	
-	public void cadastrarBagagem() {
-		Bagagem mochila = new Mochila();
+
+	public Mochila(double peso, String cor, String marca, Passageiro passageiro) {
+		super(peso, cor, marca, passageiro);
 	}
+
 }

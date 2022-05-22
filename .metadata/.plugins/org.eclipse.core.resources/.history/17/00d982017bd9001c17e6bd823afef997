@@ -1,0 +1,7 @@
+
+public class Mochila extends Bagagem {
+	
+	public void cadastrarBagagem() {
+
+	}
+}

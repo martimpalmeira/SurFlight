@@ -9,6 +9,25 @@ public abstract class Bagagem {
 	
 	protected Passageiro passageiro;
 	
+	
+	
+	
+	public Bagagem(double peso, String cor, String marca, Passageiro passageiro) {
+		super();
+		this.peso = peso;
+		this.cor = cor;
+		this.marca = marca;
+		this.passageiro = passageiro;
+	}
+
+	public Passageiro getPassageiro() {
+		return passageiro;
+	}
+
+	public void setPassageiro(Passageiro passageiro) {
+		this.passageiro = passageiro;
+	}
+
 	public boolean seraDespachada() {
 		final double PESO_MAXIMO = 10;
 		if(this.peso>PESO_MAXIMO) {
@@ -18,7 +37,7 @@ public abstract class Bagagem {
 		}
 	}
 	
-	public abstract void cadastrarBagagem();
+	
 
 	public double getPeso() {
 		return peso;

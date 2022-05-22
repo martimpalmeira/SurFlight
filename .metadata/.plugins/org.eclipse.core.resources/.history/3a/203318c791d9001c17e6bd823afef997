@@ -1,0 +1,7 @@
+
+public class Bolsa extends Bagagem {
+
+	public Bolsa() {
+		
+	}
+}
