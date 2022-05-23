@@ -17,48 +17,12 @@ public abstract class Bagagem {
 		this.passageiro = passageiro;
 	}
 
-	public Passageiro getPassageiro() {
-		return passageiro;
-	}
 
-	public void setPassageiro(Passageiro passageiro) {
-		this.passageiro = passageiro;
-	}
-
-	public boolean seraDespachada() {
-		final double PESO_MAXIMO = 10;
-		if(this.peso>PESO_MAXIMO) {
-			return true;
-		}else {
-			return false;
-		}
-	}
 	
 	
 
-	public double getPeso() {
-		return peso;
-	}
+	
 
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-
-	public String getCor() {
-		return cor;
-	}
-
-	public void setCor(String cor) {
-		this.cor = cor;
-	}
-
-	public String getMarca() {
-		return marca;
-	}
-
-	public void setMarca(String marca) {
-		this.marca = marca;
-	}
 	
 
 	

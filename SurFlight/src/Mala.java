@@ -16,21 +16,5 @@ public class Mala extends Bagagem {
 		this.largura = largura;
 		this.profundidade = profundidade;
 	}
-
-
-
-	@Override
-	public boolean seraDespachada() {
-		if (super.seraDespachada()) {
-			return true;
-		} else {
-			if (altura > 55 || largura > 33 || profundidade > 25) {
-				return true;
-			} else {
-				return false;
-			}
-		}
-	}
-	
 	
 }

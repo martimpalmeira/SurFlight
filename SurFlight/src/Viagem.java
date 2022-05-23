@@ -22,6 +22,9 @@ public class Viagem {
 
 	private ArrayList<Passageiro> passageiros;
 
+	
+	
+	// Construtor
 	public Viagem(String data, String origem, String destino, int numMaximoBolsa, int numMaximoMala,
 			int numMaximoMochila, int numMaximoPassageiros) {
 		this.data = data;
@@ -35,16 +38,9 @@ public class Viagem {
 		bagagens = new ArrayList<Bagagem>();
 	}
 
-	public Passageiro cadastrarPassageiro(String cpf, String nome, String passaporte) {
-		Passageiro passageiro = new Passageiro();
-		passageiro.setCpf(cpf);
-		passageiro.setNome(nome);
-		passageiro.setPassaporte(passaporte);
-		ArrayList<Bagagem> bagagens = new ArrayList<Bagagem>();
-		passageiro.setBagagens(bagagens);
-		return passageiro;
-	}
-
+	
+	
+	// Métodos de validação de cadastro de cada tipo de bagagem
 	public boolean podeCadastrarBolsa() {
 		int numBolsasCadastradas = 0;
 		for (int i = 0; i < bagagens.size(); i++) {
@@ -87,112 +83,135 @@ public class Viagem {
 		}
 	}
 
-	public void cadastrarBagagem(Passageiro passageiro, double numBagDoPassageiro, int i) {
-		Scanner sc = new Scanner(System.in);
+	
+	
+	
+	public void cadastrarBagagemDoPassageiro(Passageiro passageiro, double numBagDoPassageiro, int i) {
+
 		for (int j = 1; j < numBagDoPassageiro + 1;) {
 
 			if (passageiro.podeCadastrarBagagemDoPassageiro()) {
 
-				System.out.println("Cadastrando " + j + "º bagagem do " + i + "º passageiro");
+				exibir("Cadastrando " + j + "º bagagem do " + i + "º passageiro");
 
 				Bagagem bagagem = null;
 
-				System.out.println("Informe o número da bagagem que será cadastrada\n(1)bolsa\n(2)mala\n(3)mochila");
-				int tipoBagagem = sc.nextInt();
-				sc.nextLine();
-				if (!this.podeCadastrarBolsa() && tipoBagagem == 1) {
-					System.out.println("Número de BOLSAS excedido");
-				} else if (!this.podeCadastrarMala() && tipoBagagem == 2) {
-					System.out.println("Número de MALAS excedido");
-				} else if (!this.podeCadastrarMochila() && tipoBagagem == 3) {
-					System.out.println("Número de MOCHILAS excedido");
-				} else {
+				exibir("Informe o número da bagagem que será cadastrada\n(1)bolsa\n(2)mala\n(3)mochila");
+				int tipoBagagem = lerInt();
 
-					System.out.println("Informe o peso da bagagem");
-					double pesoBagagem = sc.nextDouble();
-					sc.nextLine();
+				if (!this.podeCadastrarBolsa() && tipoBagagem == 1) {
+					exibir("Número de BOLSAS excedido");
+				} else if (!this.podeCadastrarMala() && tipoBagagem == 2) {
+					exibir("Número de MALAS excedido");
+				} else if (!this.podeCadastrarMochila() && tipoBagagem == 3) {
+					exibir("Número de MOCHILAS excedido");
+				} else {
+					exibir("Informe o peso da bagagem");
+					double pesoBagagem = lerDouble();
+
 					if (pesoBagagem <= 10) {
 						System.out.println("Informe a cor da bagagem");
-						String corBagagem = sc.nextLine();
+						String corBagagem = lerString();
 						System.out.println("Informe a marca da bagagem");
-						String marcaBagagem = sc.nextLine();
-						if (tipoBagagem == 1 || tipoBagagem == 3) {
-							j++;
-						}
+						String marcaBagagem = lerString();
 						if (tipoBagagem == 1) {
-
 							bagagem = new Bolsa(pesoBagagem, corBagagem, marcaBagagem, passageiro);
+							j++;
 
 						} else if (tipoBagagem == 2) {
 
-							System.out.println("Informe a altura da mala(cm): ");
-							double altura = sc.nextDouble();
-							sc.nextLine();
+							exibir("Informe a altura da mala(cm): ");
+							double altura = lerDouble();
 							if (altura <= 55) {
-								System.out.println("Informe a largura da mala(cm): ");
-								double largura = sc.nextDouble();
-								sc.nextLine();
+								exibir("Informe a largura da mala(cm): ");
+								double largura = lerDouble();
 								if (largura <= 35) {
-									System.out.println("Informe a profundidade da mala(cm): ");
-									double profundidade = sc.nextDouble();
-									sc.nextLine();
+									exibir("Informe a profundidade da mala(cm): ");
+									double profundidade = lerDouble();
 									if (profundidade <= 25) {
 										bagagem = new Mala(pesoBagagem, corBagagem, marcaBagagem, passageiro, altura,
 												largura, profundidade);
 										j++;
 									} else {
-										System.out.println("PROFUNDIDADE da mala ultrapassa tamanho limite");
+										exibir("PROFUNDIDADE da mala ultrapassa tamanho limite");
 									}
 								} else {
-									System.out.println("LARGURA da mala ultrapassa tamanho limite");
+									exibir("LARGURA da mala ultrapassa tamanho limite");
 								}
 
 							} else {
-								System.out.println("ALTURA da mala ultrapassa tamanho limite");
+								exibir("ALTURA da mala ultrapassa tamanho limite");
 							}
 
 						} else if (tipoBagagem == 3) {
-
+							
 							bagagem = new Mochila(pesoBagagem, corBagagem, marcaBagagem, passageiro);
+							j++;
 						}
 
 						passageiro.addBagagem(bagagem);
 						this.bagagens.add(bagagem);
 
 					} else {
-						System.out.println("Bagagem será despachada");
+						exibir("Bagagem será despachada");
 					}
 				}
 
 			} else {
-				System.out.println("Número de bagagens por passageiro EXCEDIDO");
+				exibir("Número de bagagens por passageiro EXCEDIDO");
 				break;
 			}
 		}
 	}
 
-	public void cadastrarPassageiroComBagagem() {
-
-		Scanner sc = new Scanner(System.in);
+	public void cadastrarPassageiro() {
 
 		for (int i = 1; i < this.numMaximoPassageiros + 1; i++) {
 
-			System.out.println("*** Cadastrando " + i + "º passageiro ***");
-			System.out.print("Digite o cpf do passageiro:");
-			String cpf = sc.nextLine();
-			System.out.print("Digite o nome do passageiro:");
-			String nome = sc.nextLine();
-			System.out.print("Digite o passaporte do passageiro:");
-			String passaporte = sc.nextLine();
+			exibir("*** Cadastrando " + i + "º passageiro ***");
+			exibir("Digite o cpf do passageiro:");
+			String cpf = lerString();
+			exibir("Digite o nome do passageiro:");
+			String nome = lerString();
+			exibir("Digite o passaporte do passageiro:");
+			String passaporte = lerString();
 
-			Passageiro passageiro = this.cadastrarPassageiro(cpf, nome, passaporte);
+			Passageiro passageiro = new Passageiro(cpf, nome, passaporte);
 
-			System.out.println("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
-			int numBagDoPassageiro = sc.nextInt();
-			sc.nextLine();
+			exibir("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
+			int numBagDoPassageiro = lerInt();
 
-			this.cadastrarBagagem(passageiro, numBagDoPassageiro, i);
+			this.cadastrarBagagemDoPassageiro(passageiro, numBagDoPassageiro, i);
 		}
+	}
+
+	
+
+	
+	
+	
+	// Metodos de Leitura e Exibição
+	public String lerString() {
+		Scanner sc = new Scanner(System.in);
+		return sc.nextLine();
+	}
+
+	public int lerInt() {
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		sc.nextLine();
+		return num;
+	}
+
+	public double lerDouble() {
+		Scanner sc = new Scanner(System.in);
+		double num = sc.nextDouble();
+		sc.nextLine();
+		return num;
+	}
+
+	public void exibir(String txt) {
+		System.out.println(txt);
 	}
 
 }

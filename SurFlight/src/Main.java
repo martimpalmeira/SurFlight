@@ -7,11 +7,10 @@ public class Main {
 	}
 
 	public static void cadastrarViagemComPassageiroComBagagem() {
-		// CADASTRAR VIAGEM
+	
 		Viagem viagem = new Viagem("30/05/2022", "Salvador-BA", "São Paulo-SP", 2, 3, 4, 3);
 
-		// CADASTRAR PASSAGEIRO E A BAGAGEM DO PASSAGEIRO
-		viagem.cadastrarPassageiroComBagagem();
+		viagem.cadastrarPassageiro();
 	}
 	
 }
