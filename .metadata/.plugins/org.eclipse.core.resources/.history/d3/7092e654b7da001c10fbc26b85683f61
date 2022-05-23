@@ -5,4 +5,5 @@ public class Bolsa extends Bagagem {
 		super(peso, cor, marca, passageiro);
 	}
 
+	
 }

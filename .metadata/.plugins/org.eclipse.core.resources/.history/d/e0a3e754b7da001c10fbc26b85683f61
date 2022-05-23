@@ -6,6 +6,8 @@ public class Mala extends Bagagem {
 	private double largura;
 
 	private double profundidade;
+	
+	
 
 	public Mala(double peso, String cor, String marca, Passageiro passageiro, double altura, double largura,
 			double profundidade) {

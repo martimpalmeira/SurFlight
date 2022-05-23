@@ -11,6 +11,8 @@ public class Passageiro {
 	private ArrayList<Bagagem> bagagens;
 	
 	
+	
+	
 	public Passageiro(String cpf, String nome, String passaporte) {
 
 		this.cpf = cpf;

@@ -16,5 +16,17 @@ public abstract class Bagagem {
 		this.marca = marca;
 		this.passageiro = passageiro;
 	}
+
+
+	
+	
+
+	
+
+	
+
+	
+	
+	
 	
 }

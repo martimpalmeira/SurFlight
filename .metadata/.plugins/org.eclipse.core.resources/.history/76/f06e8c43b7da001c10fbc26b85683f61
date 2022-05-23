@@ -40,7 +40,7 @@ public class Viagem {
 
 	
 	
-	//VERIFICAM SE PODE CADASTRAR CADA TIPO DE BAGAGEM
+	// Métodos de validação de cadastro de cada tipo de bagagem
 	public boolean podeCadastrarBolsa() {
 		int numBolsasCadastradas = 0;
 		for (int i = 0; i < bagagens.size(); i++) {
@@ -86,8 +86,7 @@ public class Viagem {
 	
 	
 	
-	//CADASTRO DAS BAGAGENS DO PASSAGEIRO
-	public void cadastrarBagagensDosPassageiros(Passageiro passageiro, double numBagDoPassageiro, int i) {
+	public void cadastrarBagagemDoPassageiro(Passageiro passageiro, double numBagDoPassageiro, int i) {
 
 		for (int j = 1; j < numBagDoPassageiro + 1;) {
 
@@ -107,7 +106,6 @@ public class Viagem {
 				} else if (!this.podeCadastrarMochila() && tipoBagagem == 3) {
 					exibir("Número de MOCHILAS excedido");
 				} else {
-					
 					exibir("Informe o peso da bagagem");
 					double pesoBagagem = lerDouble();
 
@@ -116,7 +114,6 @@ public class Viagem {
 						String corBagagem = lerString();
 						System.out.println("Informe a marca da bagagem");
 						String marcaBagagem = lerString();
-						
 						if (tipoBagagem == 1) {
 							bagagem = new Bolsa(pesoBagagem, corBagagem, marcaBagagem, passageiro);
 							j++;
@@ -166,11 +163,8 @@ public class Viagem {
 			}
 		}
 	}
-	
-	
-	
-	//CADASTRO DOS PASSAGEIROS
-	public void cadastrarPassageiros() {
+
+	public void cadastrarPassageiro() {
 
 		for (int i = 1; i < this.numMaximoPassageiros + 1; i++) {
 
@@ -187,7 +181,7 @@ public class Viagem {
 			exibir("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
 			int numBagDoPassageiro = lerInt();
 
-			this.cadastrarBagagensDosPassageiros(passageiro, numBagDoPassageiro, i);
+			this.cadastrarBagagemDoPassageiro(passageiro, numBagDoPassageiro, i);
 		}
 	}
 
@@ -196,7 +190,7 @@ public class Viagem {
 	
 	
 	
-	// METODOS DE LEITURA E EXIBICAO
+	// Metodos de Leitura e Exibição
 	public String lerString() {
 		Scanner sc = new Scanner(System.in);
 		return sc.nextLine();
