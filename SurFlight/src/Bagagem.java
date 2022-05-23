@@ -9,9 +9,6 @@ public abstract class Bagagem {
 	
 	protected Passageiro passageiro;
 	
-	
-	
-	
 	public Bagagem(double peso, String cor, String marca, Passageiro passageiro) {
 		super();
 		this.peso = peso;

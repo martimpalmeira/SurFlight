@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		// CADASTRAR VIAGEM
+		Viagem viagem = new Viagem("30/05/2022", "Salvador-BA", "São Paulo-SP", 2, 3, 4, 5);
+		viagem.setNumMaximoBagagens(viagem.getNumMaximoMala(), viagem.getNumMaximoBolsa(),
+				viagem.getNumMaximoMochila());
+
+		// CADASTRAR PASSAGEIRO
+		for (int i = 1; i < viagem.getNumMaximoPassageiros() + 1; i++) {
+
+			System.out.println("*** Cadastrando " + i + "º passageiro ***");
+			System.out.print("Digite o cpf do passageiro:");
+			String cpf = sc.nextLine();
+			System.out.print("Digite o nome do passageiro:");
+			String nome = sc.nextLine();
+			System.out.print("Digite o passaporte do passageiro:");
+			String passaporte = sc.nextLine();
+
+			Passageiro passageiro = viagem.cadastrarPassageiro(cpf, nome, passaporte);
+
+			System.out.println("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
+			int numBagDoPassageiro = sc.nextInt();
+			sc.nextLine();
+
+			// CADASTRAR BAGAGEM
+			for (int j = 1; j < numBagDoPassageiro + 1; j++) {
+
+				System.out.println("Cadastrando bagagem número " + j);
+
+				if (viagem.podeCadastrarBagagemNaViagem()) {
+					Bagagem bagagem;
+
+					System.out.println("Informe o númeo da bagagem que será cadastrada\n(1)bolsa\n(2)mala\n(3)mochila");
+					int tipoBagagem = sc.nextInt();
+					sc.nextLine();
+					System.out.println("Informe o peso da bagagem");
+					double pesoBagagem = sc.nextDouble();
+					sc.nextLine();
+					System.out.println("Informe a cor da bagagem");
+					String corBagagem = sc.nextLine();
+					System.out.println("Informe a marca da bagagem");
+					String marcaBagagem = sc.nextLine();
+
+					if (tipoBagagem == 1) {
+						bagagem = new Bolsa(pesoBagagem, corBagagem, marcaBagagem, passageiro);
+					} else if (tipoBagagem == 2) {
+						System.out.println("Informe a altura da mala: ");
+						double altura = sc.nextDouble();
+						sc.nextLine();
+						System.out.println("Informe a largura da mala: ");
+						double largura = sc.nextDouble();
+						System.out.println("Informe a profundidade da mala: ");
+						double profundidade = sc.nextDouble();
+						sc.nextLine();
+						bagagem = new Mala(pesoBagagem, corBagagem, marcaBagagem, passageiro, altura, largura,
+								profundidade);
+					} else {
+						bagagem = new Mochila(pesoBagagem, corBagagem, marcaBagagem, passageiro);
+					}
+					passageiro.addBagagem(bagagem);
+					viagem.getBagagens().add(bagagem);
+				}
+			}
+		}
+		sc.close();
+	}
+
+}

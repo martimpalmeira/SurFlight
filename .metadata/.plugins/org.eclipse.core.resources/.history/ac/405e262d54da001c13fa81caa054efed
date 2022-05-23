@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		cadastrarViagemComPassageiroComBagagem();
+		
+	}
+
+	public static void cadastrarViagemComPassageiroComBagagem() {
+		// CADASTRAR VIAGEM
+		Viagem viagem = new Viagem("30/05/2022", "Salvador-BA", "São Paulo-SP", 2, 3, 4, 3);
+
+		// CADASTRAR PASSAGEIRO E A BAGAGEM DO PASSAGEIRO
+		cadastrarPassageiroComBagagem(viagem);
+	}
+
+	public static void cadastrarPassageiroComBagagem(Viagem viagem) {
+
+		Scanner sc = new Scanner(System.in);
+
+		for (int i = 1; i < viagem.getNumMaximoPassageiros() + 1; i++) {
+
+			System.out.println("*** Cadastrando " + i + "º passageiro ***");
+			System.out.print("Digite o cpf do passageiro:");
+			String cpf = sc.nextLine();
+			System.out.print("Digite o nome do passageiro:");
+			String nome = sc.nextLine();
+			System.out.print("Digite o passaporte do passageiro:");
+			String passaporte = sc.nextLine();
+
+			Passageiro passageiro = viagem.cadastrarPassageiro(cpf, nome, passaporte);
+
+			System.out.println("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
+			int numBagDoPassageiro = sc.nextInt();
+			sc.nextLine();
+
+			viagem.cadastrarBagagem(passageiro, numBagDoPassageiro, i);
+		}
+	}
+
+	
+}
