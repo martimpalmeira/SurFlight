@@ -23,6 +23,7 @@ public class Viagem {
 	private ArrayList<Passageiro> passageiros;
 
 	
+	
 	// Construtor
 	public Viagem(String data, String origem, String destino, int numMaximoBolsa, int numMaximoMala,
 			int numMaximoMochila, int numMaximoPassageiros) {
@@ -37,7 +38,8 @@ public class Viagem {
 		bagagens = new ArrayList<Bagagem>();
 	}
 
-
+	
+	
 	//VERIFICAM SE PODE CADASTRAR CADA TIPO DE BAGAGEM
 	public boolean podeCadastrarBolsa() {
 		int numBolsasCadastradas = 0;
@@ -81,6 +83,8 @@ public class Viagem {
 		}
 	}
 
+	
+	
 	
 	//CADASTRO DAS BAGAGENS DO PASSAGEIRO
 	public void cadastrarBagagensDosPassageiros(Passageiro passageiro, double numBagDoPassageiro, int i) {
@@ -164,6 +168,7 @@ public class Viagem {
 	}
 	
 	
+	
 	//CADASTRO DOS PASSAGEIROS
 	public void cadastrarPassageiros() {
 
@@ -186,6 +191,9 @@ public class Viagem {
 		}
 	}
 
+	
+
+	
 	
 	
 	// METODOS DE LEITURA E EXIBICAO

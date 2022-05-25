@@ -187,7 +187,6 @@ public class Viagem {
 	}
 
 	
-	
 	// METODOS DE LEITURA E EXIBICAO
 	public String lerString() {
 		Scanner sc = new Scanner(System.in);

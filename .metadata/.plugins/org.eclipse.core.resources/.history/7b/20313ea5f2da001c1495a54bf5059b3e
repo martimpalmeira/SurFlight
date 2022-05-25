@@ -91,7 +91,7 @@ public class Viagem {
 
 				exibir("Cadastrando " + j + "º bagagem do " + i + "º passageiro");
 
-				Bagagem bagagem = null;
+				Bagagem bagagem ;
 
 				exibir("Informe o número da bagagem que será cadastrada\n(1)bolsa\n(2)mala\n(3)mochila");
 				int tipoBagagem = lerInt();
@@ -186,7 +186,6 @@ public class Viagem {
 		}
 	}
 
-	
 	
 	// METODOS DE LEITURA E EXIBICAO
 	public String lerString() {
