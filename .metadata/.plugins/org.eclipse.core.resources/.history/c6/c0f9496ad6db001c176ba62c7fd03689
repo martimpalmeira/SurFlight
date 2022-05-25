@@ -83,7 +83,7 @@ public class Viagem {
 
 	
 	//CADASTRO DAS BAGAGENS DO PASSAGEIRO
-	public void cadastrarBagagensDoPassageiro(Passageiro passageiro, double numBagDoPassageiro, int i) {
+	public void cadastrarBagagensDosPassageiros(Passageiro passageiro, double numBagDoPassageiro, int i) {
 
 		for (int j = 1; j < numBagDoPassageiro + 1;) {
 
@@ -182,7 +182,7 @@ public class Viagem {
 			exibir("Quantas bagagens deseja cadastrar?\n(0)\n(1)\n(2)");
 			int numBagDoPassageiro = lerInt();
 
-			this.cadastrarBagagensDoPassageiro(passageiro, numBagDoPassageiro, i);
+			this.cadastrarBagagensDosPassageiros(passageiro, numBagDoPassageiro, i);
 		}
 	}
 
